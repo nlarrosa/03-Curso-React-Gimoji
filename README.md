@@ -1,8 +1,9 @@
-# React + Vite
+# Como Copiar el proyecto a mi Repositorio?
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Para poder utilizar el proyecto en tu repositorio sin modificar nada del proyecto original hay que realizar un Fork.
 
-Currently, two official plugins are available:
+1- Debes loguearte con tu usuario en github.
+2- En la Parte superior derecha de este repositorio encontraras un boton que dice Fork, haz click y esto hara una copia del proyecto en tu repositorio personal en el estado actual en que se encuentra.
+3- Una vez que tengas la copia del proyecto en tu repositorio puedes seguir rl proceso de generar un clone a tu maquina y trabajar con el flujo normal de git, ya que este solo afectara a tu repositorio
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
