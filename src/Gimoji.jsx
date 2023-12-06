@@ -4,66 +4,50 @@ import { CustomSelect } from "./components/filters/CustomSelect";
 import { useEffect, useState } from "react";
 
 
-const apiKey = import.meta.env.VITE_APIKEY_GIPHY;
-const urlApi = import.meta.env.VITE_URL_API;
+// const apiKey = import.meta.env.VITE_APIKEY_GIPHY;
+// const urlApi = import.meta.env.VITE_URL_API;
 
 
 export const Gimoji = () => {
 
+    const apiKey = 'oivWS7jMDDIhg4T2PB8dqcRp7yroNtuT';
     const [dataGimoji, setDataGimoji] = useState([]);
     const [dataCategories, setDataCategories] = useState([]);
-    const [search, setSearch] = useState('emojis');
-    const [offset, setOffset] = useState(0);
     const limit = 16;
 
     useEffect(() => {
         getCategories();
         getGimoji();
-    }, [search]);
-
-
-    const onChangeOption = (event) => {
-        setSearch(event.target.value);
-    }
-
-    const onClickSearch = (newSearch) => {
-        setSearch(newSearch);
-    }
-
-  
+    }, []);
 
 
     const getGimoji = async() => {
-        const resp = await fetch(`${urlApi}search?api_key=${apiKey}&q=${search}&limit=${limit}&offset=${offset}`);
+        const resp = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=animals&limit=${limit}&offset=0`);
         const {data} = await resp.json();
         setDataGimoji(data);
     }
 
     const getCategories = async() => {
-        const resp = await fetch(`${urlApi}categories?api_key=${apiKey}`);
+        const resp = await fetch(`https://api.giphy.com/v1/gifs/categories?api_key=${apiKey}`);
         const {data} = await resp.json();
-        console.log(data)
         setDataCategories(data)
     }
     
     
     return (
     <>
-
         <div className="container-fluid mt-5">
             <div className="row justify-content-start">
                 <div className="col-sm-4">  
                     <CustomSelect 
                         dataOptions={dataCategories}
-                        onChangeOption={onChangeOption}
                     />
                 </div>
                 <div className="col-sm-6">
-                   <CustomSearch  onClickSearch={onClickSearch}/>
+                   <CustomSearch />
                 </div>
             </div>
         </div> 
-        
 
         <div className="album py-md-5 ">
             <div className="container-fluid">

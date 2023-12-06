@@ -1,12 +1,8 @@
 import React, { useState } from 'react'
 
-export const CustomSearch = ({ onClickSearch }) => {
+export const CustomSearch = () => {
 
-  const [newSearch, setNewSearch] = useState('');
 
-  const onChangeText = (event) => {
-    setNewSearch(event.target.value);
-  }
 
   return (
       <div className='row'>
@@ -16,11 +12,11 @@ export const CustomSearch = ({ onClickSearch }) => {
             className=" form-control input-lg" 
             placeholder="Search..." 
             aria-label="Search"
-            onChange={onChangeText}
+            onChange={() => {}}
           />
         </div>
         <div className='col-md-2'>
-          <button onClick={() => onClickSearch(newSearch)} className='btn btn-md btn-primary'>BUSCAR</button>
+          <button onClick={() => {}} className='btn btn-md btn-primary'>BUSCAR</button>
         </div>
       </div>
   )
