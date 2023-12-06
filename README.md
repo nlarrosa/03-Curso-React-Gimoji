@@ -66,6 +66,13 @@ npm install
 npm run dev
 ```
 
+## Utilizar Api de Giphy
+En este ejercicio debemos utilizar la api explorer de giphy, para esto debes ir a:
+* [GIPHY API EXPLORER](https://developers.giphy.com/)
+* Crear un usuario en giphy.
+* Ingresar al link del menu que dice API EXPLORER donde nos mostrar la posibilidad de hacer Request a la api con los distintos endpoints.
+* En este ejercicio utilizaremos el request de CATEGORIAS y SEARCH.
+* La request que utilices es la que debes implementar en el proyecto para cada accion, recuerda copiar tu APIKEY.
     
 
 
