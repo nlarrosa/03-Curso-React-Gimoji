@@ -28,7 +28,7 @@ Puedes descargar el template inicial del proyecto que contiene solo el maquetado
 * Haz click en el link de nombre RELEASES en la parte media derecha de este repositorio.
 * Encontraras distintas versiones del proyecto, selecciona la version v1.0.0 y descarga el archivo .zip dentro de assets.
 * Descomprime la carpeta donde vas a trabajar los pryectos en tu ordenador.
-* Abre la terminal que utilices y parate en la carpeta del pryecto.
+* Abre la terminal que utilices y parate en la carpeta del proyecto.
 * Una vez que estes dentro de la carpeta del proyecto con la terminal corre el comando:
  ```
 npm install
@@ -50,7 +50,7 @@ Puedes Copiar el proyecto en su estado actual a tu repositorio realizando un FOR
 ### Como hacer un FORK?
 * En la parte superior derecha de este repositorio encontraras un boton que dice FORK, haz click.
 * Ahora el proyecto realizo una copia en tu repositorio personal.
-* Ve a tu repositorio y realiza realiza un git clone:
+* Ve a tu repositorio y realiza un git clone:
 ```
 git clone <url de tu repositorio>
 ```
