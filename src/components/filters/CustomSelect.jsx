@@ -2,8 +2,7 @@ import React from 'react';
 
 
 
-export const CustomSelect = ({ dataOptions }) => {
-
+export const CustomSelect = ({ dataOptions, onChangeData }) => {
 
   
     
@@ -12,7 +11,7 @@ export const CustomSelect = ({ dataOptions }) => {
     <select 
       className="form-select" 
       aria-label="Default select example"
-      onChange={() => {}}
+      onChange={onChangeData}
     >
         <option defaultValue={true}>Selecciona una Categoria</option>
         {dataOptions.map( option => (
