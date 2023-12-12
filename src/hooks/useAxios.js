@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { reqAxios } from '../config/axiosGiphy';
+import { useEffect, useState } from 'react'
+// import { reqAxios } from '../config/axiosGiphy';
 import axios from 'axios';
 
 const urlApi = import.meta.env.VITE_URL_API;
 
-const reqAxios = axios.create({
+export const reqAxiosHook = axios.create({
     baseURL: urlApi,
     timeout: 12000,
     headers: {
@@ -26,7 +26,7 @@ export const useAxios = (url) => {
     
 
 const getFetch = async() => {
-    const resp = await reqAxios.get(url);
+    const resp = await reqAxiosHook.get(url);
     const { data } = await resp.data;
     setDataApi(data)
 }
