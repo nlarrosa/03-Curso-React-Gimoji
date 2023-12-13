@@ -15,10 +15,10 @@ export const reqAxiosHook = axios.create({
 
 
 
-export const useAxios = (url) => {
+export const useAxios = (url, method, params) => {
 
     const [dataApi, setDataApi] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         getFetch();
@@ -26,13 +26,25 @@ export const useAxios = (url) => {
     
 
 const getFetch = async() => {
-    const resp = await reqAxiosHook.get(url);
+    const resp = await reqAxiosHook({
+        url: url,
+        method: method,
+        params: { params }
+    });
     const { data } = await resp.data;
-    setDataApi(data)
+    setDataApi(data);
+    setIsLoading(false);
+    
 }
 
   return {
     dataApi,
     isLoading
   }
+}
+
+
+useAxios.defaultProps = {
+    params: null,
+    // method: 'post'
 }
