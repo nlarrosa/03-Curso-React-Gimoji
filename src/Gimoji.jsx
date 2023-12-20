@@ -1,58 +1,41 @@
 import { CustomGifcard } from "./components/ui/CustomGifcard";
 import { CustomSearch } from "./components/filters/CustomSearch";
 import { CustomSelect } from "./components/filters/CustomSelect";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useAxios } from "./hooks/useAxios";
 import { Loading } from "./components/ui/Loading";
 import { usePaginate } from "./hooks/usePaginate";
-
-
 
 const apiKey = import.meta.env.VITE_APIKEY_GIPHY;
 
 
 
-// Crear Hook de Favoritos
-//Desarrollar el Paginado
-
-
-
-
 export const Gimoji = () => {
 
-    // Cuanto gif trae por peeticion
-    //limit : 16
 
-
-    // 
     const [textSearch, setTextSearch] = useState('animals');
-    
-    
     const limit = 16;
     const pageDatatValueInitial = 1;
-    const [pageData, setPageData] = useState(pageDatatValueInitial)
-    const { offset, page, onNext, onPrev} =  usePaginate(0, limit, pageData);    
+    const [initialPage, setInitialPage] = useState(pageDatatValueInitial)
+    const { offset, page, onNext, onPrev, setPage} =  usePaginate(0, limit, initialPage);    
     const urlSearch = `search?api_key=${apiKey}&q=${textSearch}&limit=${limit}&offset=${offset}`;
     const urlCategories = `categories?api_key=${apiKey}`;
     const { dataApi: dataGifs, isLoading } = useAxios(urlSearch);
     const { dataApi: dataCategories } = useAxios(urlCategories);
 
 
-    const onChangeData = (event) => {
+
+    const onChangeData =  (event) => {
         setTextSearch(event.target.value);
-        setPageData(pageDatatValueInitial);
+        setPage(pageDatatValueInitial);
     }
 
 
     const onClickSearch = (text) => {
         setTextSearch(text);
-        
-      }
+    }
 
-    
-      
 
-    
     if(isLoading){
         return(
             <Loading />
@@ -92,14 +75,6 @@ export const Gimoji = () => {
                     <h3 className="text-center"> Page: { page } </h3>
                     <button className='btn btn-outline-primary btn-lg'onClick={onNext}> Siguiente </button>
                 </div>
-
-                
-                {/* <div className="row mt-5">
-                    <button 
-                        className='btn btn-outline-primary btn-lg'
-                        onClick={() => {}}
-                    >CARGAR MAS</button>
-                </div> */}
             </div>
         </div>        
     </>

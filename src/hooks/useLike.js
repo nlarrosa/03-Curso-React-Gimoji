@@ -11,8 +11,6 @@ export const useLike = (initValue) => {
         setLikes(prev => prev + 1);
     }
 
-
-
   return {
     likes,
     onClickLike

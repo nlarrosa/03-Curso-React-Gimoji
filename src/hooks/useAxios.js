@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 // import { reqAxios } from '../config/axiosGiphy';
 import axios from 'axios';
 
+
 const urlApi = import.meta.env.VITE_URL_API;
 
 export const reqAxiosHook = axios.create({
@@ -23,7 +24,9 @@ export const useAxios = (url, method, params) => {
     useEffect(() => {
         getFetch();
     }, [url])
-    
+
+
+ 
 
 const getFetch = async() => {
     const resp = await reqAxiosHook({
@@ -34,7 +37,6 @@ const getFetch = async() => {
     const { data } = await resp.data;
     setDataApi(data);
     setIsLoading(false);
-    
 }
 
   return {

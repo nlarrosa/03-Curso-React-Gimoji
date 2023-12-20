@@ -1,13 +1,9 @@
 import { useEffect, useState } from 'react'
 
-export const usePaginate = (initialOffset, limit, pageData) => {
+export const usePaginate = (initialOffset, limit, initialPage) => {
 
     const [offset, setOffset] = useState(initialOffset);
-    const [page, setPage] = useState(pageData);
-
-    useEffect(() => {
-        setPage(1);
-    }, [pageData])
+    const [page, setPage] = useState(initialPage);
 
 
     const onNext = () => {
@@ -19,9 +15,9 @@ export const usePaginate = (initialOffset, limit, pageData) => {
     const onPrev = () => {
 
         setOffset( prev => {
-            if(prev <= 0){
-                setPage(pageData)
-                return 0
+            if(prev <= initialOffset){
+                setPage(initialPage)
+                return initialOffset;
             } else {
                 setPage(page-1);
                 return prev - limit;
@@ -34,6 +30,7 @@ export const usePaginate = (initialOffset, limit, pageData) => {
     offset,
     page,
     onNext,
-    onPrev
+    onPrev,
+    setPage
   }
 }

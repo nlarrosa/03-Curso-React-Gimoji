@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 
 
 export const CustomSelect = ({ dataOptions, onChangeData }) => {
 
+
+  const getOptions = () => {
+    console.log(dataOptions);
+    return (
+      dataOptions.map( option => (
+        <option key={option.name} value={option.name}>{ option.name }</option>
+      ))
+    )
+  }
+
+  const options = useMemo( () => {
+       return getOptions();
+  },[dataOptions])
   
+
     
   return (
   
@@ -14,9 +28,7 @@ export const CustomSelect = ({ dataOptions, onChangeData }) => {
       onChange={onChangeData}
     >
         <option defaultValue={true}>Selecciona una Categoria</option>
-        {dataOptions.map( option => (
-          <option key={option.name} value={option.name}>{ option.name }</option>
-        ))}
+        {  options }
 
     </select>
 

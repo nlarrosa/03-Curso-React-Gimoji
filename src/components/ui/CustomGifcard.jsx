@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLike } from '../../hooks/useLike';
 import { useFavorite } from '../../hooks/useFavorite';
+import { Link } from 'react-router-dom';
 
 
 const noImage = import.meta.env.VITE_NO_IMAGE;
@@ -9,12 +10,15 @@ export const CustomGifcard = ({ dataItem }) => {
 
     const { likes, onClickLike } = useLike(0);
     const { favorite, onClickFavorite} = useFavorite();
+    // console.log(dataItem.id)
 
     
   return (
     <div className="col">
         <div className="card shadow-sm">
-            <img src={dataItem.images.fixed_width.url} alt="Girl in a jacket" width={'100%'}  height={300} style={{ display: 'block'}}/>
+            <Link className='btn btn-outline' to={`/gimoji/${dataItem.id}`}>
+                <img src={dataItem.images.fixed_width.url} alt="Girl in a jacket" width={'100%'}  height={300} style={{ display: 'block'}}/>
+            </Link>
             <div className="card-body">
             <div className="d-flex justify-content-between align-items-center">
                 <div className="btn-group">
